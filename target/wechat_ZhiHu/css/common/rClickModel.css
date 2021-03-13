@@ -1,0 +1,26 @@
+#modalTop,#modalBottom{
+    width: 120px;
+    height: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    cursor: default;
+}
+#modalTop{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#modalBottom{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.positionSet{
+    position: absolute;
+    top:0px;
+    left: 0px;
+}
+#modalTop:hover{
+    background-color: #ECEAE8;
+}
+#modalBottom:hover{
+    background-color: #ECEAE8;
+}

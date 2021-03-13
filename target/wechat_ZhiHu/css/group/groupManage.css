@@ -1,0 +1,98 @@
+.groupUser img{
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+}
+.body{
+    width: 100%;
+    height: 330px;
+    background-color: rgb(251,251,251);
+    padding-top: 30px;
+}
+#group{
+    width: 1300px;
+    height: 300px;
+    border: 1px solid lightgray;
+    margin: 0px auto;
+    background-color: white;
+}
+#group #groupTit{
+    width: 1300px;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 30px;
+    font-size: 18px;
+    border-bottom: 1px solid lightgray;
+}
+#groupTit #addGroup{
+    margin-left: 10px;
+    font-size: 14px;
+    color: rgb(90,120,183);
+    cursor: pointer;
+}
+#groupSet{
+    padding-left: 30px;
+    width: 1300px;
+    height: 60px;
+    line-height: 60px;
+}
+#groupSet .gcButton{
+    display: inline-block;
+
+    border-radius: 3px;
+    width: 88px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+#addGuser{
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #1AAD19;
+}
+#delGuser,#delGroup{
+    background-color: #d4d7dc;
+    cursor: pointer;
+}
+#groupUsers{
+    width: 1300px;
+    height: 120px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#gUsersTit{
+    width: 1300px;
+    height: 40px;
+    background-color: rgb(238,240,244);
+    line-height: 40px;
+    color: #999999;
+    padding-left: 30px;
+}
+#gUsersTit span{
+    display: inline-block;
+}
+.groupUser{
+    width: 1300px;
+    padding-left: 30px;
+    cursor: default;
+    height: 40px;
+    line-height: 40px;
+}
+.groupUser span{
+    display: inline-block;
+}
+.list{
+    margin-left: 5px;
+}
+.userImgAndName{
+    width: 300px;
+    padding-left: 25px;
+}
+.inGroupName,.dsqId,.sex,.enterTime,.lastMsg{
+    width: 180px;
+}
+
+.groupUser:hover{
+    background-color: lightblue;
+}
