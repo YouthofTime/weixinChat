@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-public class ServerManger {
+public class ServerManager {
     private static Collection<Chat> servers = Collections.synchronizedCollection(new ArrayList<Chat>());
     public static void add(Chat chat){
         servers.add(chat);

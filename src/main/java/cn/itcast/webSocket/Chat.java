@@ -27,7 +27,7 @@ public class Chat {
     @OnOpen
     public void onOpen(Session session){
         this.session = session;
-        ServerManger.add(this);
+        ServerManager.add(this);
 
     }
     // 发给客户端的消息
@@ -37,7 +37,7 @@ public class Chat {
 
     @OnClose
     public void onClose(){
-        ServerManger.remove(this);
+        ServerManager.remove(this);
         //System.out.println("关闭连接");
     }
 

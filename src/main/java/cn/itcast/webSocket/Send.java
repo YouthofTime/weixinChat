@@ -31,7 +31,7 @@ public class Send extends HttpServlet implements Runnable {
         }
             String msg=" ";
         // 广播最后输入的,保证对每个客户端的信息都是一致的,不能在broadcast内部传入各自的信息
-            for(Chat chat:ServerManger.getServers()){
+            for(Chat chat: ServerManager.getServers()){
                 //判断chat的消息是否有值,不然每次建立新连接,就重置为null了
                 if(chat.getMessage()!=null&&chat.flag==true)
                     msg=chat.getMessage();
@@ -48,7 +48,7 @@ public class Send extends HttpServlet implements Runnable {
 //                System.out.println("发送消息:"+msg);
                 my.setMessage(msg);
                 // 确认发送消息,更新message
-                ServerManger.broadcast(msg);
+                ServerManager.broadcast(msg);
             }
 
         }
