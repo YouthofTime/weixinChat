@@ -39,7 +39,7 @@
             <div id="input2">
                 <input type="text" id="inputMsgCode" placeholder="输入6位短信验证码" warn="短信验证码">
                 <a href="#"  id="getMsgCode" >获取短信验证码</a>
-                <span id="waitMsgCode" style="float:right"><span id="value">60</span>秒后可重发</span>
+                <span id="waitMsgCode" style="float:right"><span id="value">5</span>秒后可重发</span>
             </div>
             <!--验证码-->
             <div class="code" style="display: none;">
@@ -51,7 +51,7 @@
             </div>
             <div>
                 <button id="registerLoginButton" >注册/登录</button>
-               <button id="quickButton"style="margin-top: 3px">快速登录</button>
+<%--               <button id="quickButton"style="margin-top: 3px">快速登录</button>--%>
             </div>
         </div>
     <!--密码登陆-->

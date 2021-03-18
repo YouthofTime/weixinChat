@@ -100,7 +100,7 @@ public class UserController {
         user=userService.findByPhone(user.getPhone());
         // 添加cookie
         Cookie c = new Cookie("id", user.getId()+"");
-        c.setMaxAge(60 * 24 * 60);
+        c.setMaxAge(60*60 * 24 * 60);
         c.setPath("/");
         response.addCookie(c);
 
@@ -151,29 +151,27 @@ public class UserController {
         }
         user=(User)model.get("user");
         Cookie c = new Cookie("id", user.getId()+"");
-        c.setMaxAge(60 * 24 * 60);
+        c.setMaxAge(60*60 * 24 * 60);
         c.setPath("/");
         response.addCookie(c);
 
         return StateJudge.success();
     }
     /*快速登录*/
-    @RequestMapping("/quicklogin")
-    public @ResponseBody StateJudge quicklogin(@RequestBody User user, HttpServletResponse response, ModelMap model){
-
-
-        // 添加session
-        if(user!=null) {
-            user=userService.findByPhone(user.getPhone());
-            Cookie c = new Cookie("id", user.getId()+"");
-            c.setMaxAge(60 * 24 * 60);
-            c.setPath("/");
-            response.addCookie(c);
-            model.addAttribute("user", user);
-            return StateJudge.success();
-        }
-        else return StateJudge.error();
-    }
+//    @RequestMapping("/quicklogin")
+//    public @ResponseBody StateJudge quicklogin(@RequestBody User user, HttpServletResponse response, ModelMap model){
+//        // 添加session
+//        if(user!=null) {
+//            user=userService.findByPhone(user.getPhone());
+//            Cookie c = new Cookie("id", user.getId()+"");
+//            c.setMaxAge(60 * 24 * 60);
+//            c.setPath("/");
+//            response.addCookie(c);
+//            model.addAttribute("user", user);
+//            return StateJudge.success();
+//        }
+//        else return StateJudge.error();
+//    }
     /*退出登录*/
     @RequestMapping("/backLogin")
     public @ResponseBody StateJudge backLogin(SessionStatus status,HttpServletRequest request,HttpServletResponse response){

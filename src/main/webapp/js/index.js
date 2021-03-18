@@ -117,7 +117,7 @@ $(function (){
     function showAuto(){
         // 到0秒退出函数，更新超链接文本
         if(count<=0){
-            $("#value").text(60);
+            $("#value").text(5);
             $("#getMsgCode").show();
             $("#waitMsgCode").hide();
             $("#getMsgCode").text("重新获取短信验证码");
