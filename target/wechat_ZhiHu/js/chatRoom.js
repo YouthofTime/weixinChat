@@ -6,7 +6,7 @@ $(function () {
     // 创建WebSocket连接
     var local="ws://localhost:8888/ws/chat";
     var web="ws://101.201.124.20:8080/ws/chat";
-    var sockeet=new WebSocket(web);
+    var sockeet=new WebSocket(local);
     // 连接
     sockeet.onopen=function () {
     }
