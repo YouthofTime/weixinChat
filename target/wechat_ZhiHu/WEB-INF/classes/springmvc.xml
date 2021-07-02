@@ -32,6 +32,7 @@
             <mvc:exclude-mapping path="/css/**"/>
             <mvc:exclude-mapping path="/audio/**"/>
             <mvc:exclude-mapping path="/user/**"/>
+            <mvc:exclude-mapping path="/upload/**"/>
             <bean id="handlerLogin" class="cn.itcast.utils.HandlerLogin"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -40,7 +41,7 @@
     <mvc:resources location="/img/" mapping="/img/**" />
     <mvc:resources location="/js/" mapping="/js/**" />
     <mvc:resources location="/audio/" mapping="/audio/**" />
-
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
     <!--开启SpringMVC注解的支持-->
     <mvc:annotation-driven/>
 

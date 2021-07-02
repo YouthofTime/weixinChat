@@ -3,6 +3,7 @@ package cn.itcast.controller;
 import cn.itcast.domain.*;
 import cn.itcast.service.*;
 import cn.itcast.utils.DateFormat;
+import cn.itcast.utils.FileUpload;
 import cn.itcast.utils.Pingyin;
 import cn.itcast.utils.StateJudge;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,18 @@ public class WeixinController {
     @Autowired
     GroupSplitUserService gsuService;
 
+    @RequestMapping("/sendFile")
+    public @ResponseBody StateJudge sendFile(HttpServletRequest request, HttpServletResponse response, MultipartFile upload,ModelMap modelMap) throws IOException {
+        User user=(User)modelMap.get("user");
+        int id=user.getId();
+        String path=request.getSession().getServletContext().getRealPath("/uploads");
+        String project=path.substring(0,path.indexOf("target"))+"src\\main\\webapp\\upload\\user"+id;
+        String filename=upload.getOriginalFilename();
+        System.out.print(filename);
+        FileUpload.upload(filename,project,upload);
+        response.sendRedirect("/weixin/main");
+        return StateJudge.success();
+    }
     @RequestMapping("/uploadImg")
     public @ResponseBody StateJudge uploaImg(HttpServletRequest request, HttpServletResponse response, MultipartFile upload,ModelMap modelMap) throws IOException {
         // 获取文件目录
@@ -50,16 +63,11 @@ public class WeixinController {
         /*以war包的形式部署路径不一样*/
       // String project1=path.substring(0,path.indexOf("upload"))+"/img/headphoto";//war部署
        // File file=new File(path); // 上传到uploads下
-        File file=new File(project); //上传到images下
-        if(!file.exists())
-            file.mkdirs();
         // 直接获得上传文件名字
         String filename=upload.getOriginalFilename();
         String extend=filename.substring(filename.lastIndexOf("."));
+        FileUpload.upload(filename,project,upload);
         if(extend.equals(".jpg")||extend.equals(".png")){
-            filename=System.currentTimeMillis()+extend;
-            upload.transferTo(new File(file,filename));
-            System.out.println("文件"+filename+"上传成功");
             // 1.更改用户信息
             User user=(User)modelMap.get("user");
             user.setHeadImg(filename);
@@ -78,16 +86,11 @@ public class WeixinController {
         /*以war包的形式部署路径不一样*/
        // String project1=path.substring(0,path.indexOf("upload"))+"/img/headphoto";//war部署(这个有亿点点坑)
         // File file=new File(path); // 上传到uploads下
-        File file=new File(project); //上传到images下
-        if(!file.exists())
-            file.mkdirs();
         // 直接获得上传文件名字
         String filename=upload.getOriginalFilename();
         String extend=filename.substring(filename.lastIndexOf("."));
+        FileUpload.upload(filename,project,upload);
         if(extend.equals(".jpg")||extend.equals(".png")){
-            filename=System.currentTimeMillis()+extend;
-            upload.transferTo(new File(file,filename));
-            System.out.println("文件"+filename+"上传成功");
             // 1.更改群聊头像
             String gcId=request.getParameter("gcId");
             System.out.println(gcId);

@@ -1,5 +1,10 @@
 $(function () {
             /**事件函数*/
+    $("#hideUpload").hide();
+    /*发送文件点击*/
+    $("#send_file").click(function () {
+        $("#hideUpload").trigger("click");
+    });
     /*1.body点击*/
     $("body").click(function () {
 
@@ -568,7 +573,5 @@ $(function () {
 
     setInterval(adjustPage,10)
 
-
-
-
+    /*显示选中文件*/
 })

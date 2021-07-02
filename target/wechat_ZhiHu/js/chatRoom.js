@@ -154,6 +154,11 @@ $(function () {
                 /**事件函数*/
      /*1.发消息按钮*/
     $("#send").click(function () {
+        // 上传文件
+        var img=$("#preview").find("img");
+        if(img.length!=0){
+            $("#sendImgSubmit").trigger("click");
+        }
         save();
     });
     /*2.回车键发消息*/
@@ -168,6 +173,7 @@ $(function () {
     /*1.保存消息*/
     function save(){
         if($("#input").val()!=""){
+
             // 不要获取文本,有换行的
             var name=$("span#user").attr("username");
             var value=$("#input").val();

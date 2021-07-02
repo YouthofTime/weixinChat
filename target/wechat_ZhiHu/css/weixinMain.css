@@ -447,3 +447,6 @@ div#label:hover{
     border: 0px;
     background-color: #EEEBE9;
 }
+#send_msg #send_file{
+    margin-left: 5%;
+}

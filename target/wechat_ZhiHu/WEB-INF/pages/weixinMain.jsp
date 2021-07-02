@@ -27,6 +27,34 @@
         // 2.刷新页面后设置选中框
 
     })
+    function handleFiles(files) {
+        var preview = document.getElementById('preview');
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var imageType = /^image\//;
+
+            if ( !imageType.test(file.type) ) {
+                continue;
+            }
+
+            var img = document.createElement("img");
+            img.style.width="150px";
+            img.style.height="80px";
+            img.style.margin="5px 0px 0px 40px";
+            img.classList.add("obj");
+            img.file = file;
+            // 假设 "preview" 是将要展示图片的 div
+            preview.appendChild(img);
+
+            var reader = new FileReader();
+            reader.onload = (function(aImg) {
+                return function(e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+            reader.readAsDataURL(file);
+        }
+    }
 </script>
 <body>
 <span id="user" userid="${user.id}" username="${user.username}" headImg="${user.headImg}" selectId="${selectId}">
@@ -117,6 +145,13 @@
 
         </div>
         <div id="send_msg">
+            <form action="/weixin/sendFile" method="post" enctype="multipart/form-data">
+                <input  id="hideUpload" type="file" name="upload" accept="image/*" onchange="handleFiles(this.files)">
+                <input style="display: none" id="sendImgSubmit" type="submit" value="上传文件">
+            </form>
+            <div id="preview">
+            </div>
+<%--            <img id="send_file" src="../img/weixinMain/file.png">--%>
 <%--            <span style="display: inline-block;margin-left: 30px;"><img src="../img/icon.png"></span>--%>
             <input type="text" id="input" style="border: 0px">
             <button id="send">发送(S)</button>
