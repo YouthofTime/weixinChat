@@ -57,6 +57,7 @@ public class WeixinController {
     public @ResponseBody StateJudge uploaImg(HttpServletRequest request, HttpServletResponse response, MultipartFile upload,ModelMap modelMap) throws IOException {
         // 获取文件目录
         String path=request.getSession().getServletContext().getRealPath("/uploads");
+        System.out.println(path);
 
         /* 在webapp目录下创建该照片*/
        String project=path.substring(0,path.indexOf("target"))+"src\\main\\webapp\\img\\headphoto";
@@ -66,7 +67,7 @@ public class WeixinController {
         // 直接获得上传文件名字
         String filename=upload.getOriginalFilename();
         String extend=filename.substring(filename.lastIndexOf("."));
-        FileUpload.upload(filename,project,upload);
+        filename=FileUpload.upload(filename,project,upload);
         if(extend.equals(".jpg")||extend.equals(".png")){
             // 1.更改用户信息
             User user=(User)modelMap.get("user");
@@ -89,7 +90,7 @@ public class WeixinController {
         // 直接获得上传文件名字
         String filename=upload.getOriginalFilename();
         String extend=filename.substring(filename.lastIndexOf("."));
-        FileUpload.upload(filename,project,upload);
+        filename=FileUpload.upload(filename,project,upload);
         if(extend.equals(".jpg")||extend.equals(".png")){
             // 1.更改群聊头像
             String gcId=request.getParameter("gcId");
